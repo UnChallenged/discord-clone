@@ -1,11 +1,11 @@
 import React from 'react';
 import InputWithLabel from '../../shared/components/InputWithLabel';
-const LoginPageInputs = ({email,setEmail,password,setPassword}) => {
+const LoginPageInputs = ({emailAddress,setEmailAddress,password,setPassword}) => {
     return (
         <>
            <InputWithLabel
-           value={email}
-           setValue={setEmail}
+           value={emailAddress}
+           setValue={setEmailAddress}
            label='Email'
            type='text'
            placeholder = 'Enter Email'
