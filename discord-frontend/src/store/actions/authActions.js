@@ -5,7 +5,7 @@ export const authActions = {
     SET_USER_DETAILS:'AUTH.SET_USER_DETAILS'
 };
 
-export const setUserDetails = (userDetails) =>{
+const setUserDetails = (userDetails) =>{
     return{
         type:authActions.SET_USER_DETAILS,
         userDetails
@@ -15,7 +15,9 @@ export const setUserDetails = (userDetails) =>{
 export const getActions = (dispatch) =>{
     return{
         login: (userDetails,navigate) =>dispatch(login(userDetails,navigate)),
-        register: (userDetails,navigate) =>dispatch(register(userDetails,navigate))
+        register: (userDetails,navigate) =>dispatch(register(userDetails,navigate)),
+        setUserDetails: (userDetails) =>dispatch(setUserDetails(userDetails))
+        
     }
 }
 
@@ -28,7 +30,7 @@ const login = (userDetails,navigate) =>{
         }
         else{
             const {userDetails} = response?.data;
-            localStorage.setItem('user',JSON.stringify(userDetails.userDetails));
+            localStorage.setItem('user',JSON.stringify(userDetails));
             dispatch(setUserDetails(userDetails));
             navigate('/dashboard')
         }
@@ -45,7 +47,7 @@ const register = (userDetails,navigate) =>{
         }
         else{
             const userDetails = response?.data;
-            localStorage.setItem('user',JSON.stringify(userDetails.userDetails));
+            localStorage.setItem('user',JSON.stringify(userDetails));
             dispatch(setUserDetails(userDetails));
             navigate('/dashboard')
         }

@@ -17,6 +17,6 @@ const validatePassword = (password) =>{
     return password.length > 6 && password.length < 12;
 }
 
-const validateEmail = (emailAddress) =>{
+export const validateEmail = (emailAddress) =>{
     return emailAddress.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 }
