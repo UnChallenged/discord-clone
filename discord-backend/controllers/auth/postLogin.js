@@ -13,7 +13,7 @@ const postLogin = async (req,res) =>{
         if(user && (await bcrypt.compare(password, user.password))){
             
             const token = jwt.sign({
-                userid: user._id,
+                userId: user._id,
                 emailAddress,
             },
             process.env.JWT_TOKEN_KEY,

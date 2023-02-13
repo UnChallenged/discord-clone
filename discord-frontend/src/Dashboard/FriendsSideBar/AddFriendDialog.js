@@ -8,6 +8,8 @@ import { Typography } from '@mui/material';
 import { DialogTitle } from '@mui/material';
 import InputWithLabel from '../../shared/components/InputWithLabel';
 import CustomPrimaryButton from '../../shared/components/CustomPrimaryButton';
+import { connect } from 'react-redux';
+import { getActions } from '../../store/actions/friendsActions';
 
 const AddFriendDialog = ({
     isDialogOpen,
@@ -18,7 +20,10 @@ const AddFriendDialog = ({
     const [isFormValid, setIsFormValid] = useState(false);
 
     const handleSendInvitation = () =>{
-
+        sendFriendInvitation({
+            targetEmailAddress:emailAddress,
+        },
+        handleCloseDialog)
     }
 
     const handleCloseDialog = () =>{
@@ -66,5 +71,10 @@ const AddFriendDialog = ({
         </div>
     );
 };
+const mapActionsToProps = (dispatch) =>{
+    return {
+        ...getActions(dispatch),
+    }
+}
 
-export default AddFriendDialog;
+export default connect(null,mapActionsToProps)(AddFriendDialog)

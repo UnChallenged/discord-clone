@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { styled } from '@mui/system';
 import SideBar from './SideBar/SideBar';
 import FriendsSideBar from './FriendsSideBar/FriendsSideBar';
@@ -7,7 +7,8 @@ import AppBar from './AppBar/AppBar'
 import { logout } from '../shared/utils/auth';
 import {connect} from 'react-redux';
 import { getActions } from '../store/actions/authActions';
-import { Navigate } from "react-router-dom";
+import { connectWithSocketServer } from '../realtimeCommunication/socketConnection';
+
 
 const Wrapper = styled('div')({
     width:'100%',
@@ -16,15 +17,15 @@ const Wrapper = styled('div')({
 })
 
 const Dashboard = ({setUserDetails}) => {
-    
-    const userDetails = localStorage.getItem('user');
+    console.log('test1')
     useEffect(()=>{
-        
+        const userDetails = localStorage.getItem('user');
         if(!userDetails){
             logout();
         }
         else{
             setUserDetails(JSON.parse(userDetails));
+            connectWithSocketServer(JSON.parse(userDetails));
         }
     });
     return (
