@@ -1,22 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/system';
 import PendingInvitationsListItems from './PendingInvitationsListItems';
-
-const dummy_invitations =[{
-    _id:'1',
-    senderId:{
-        username:'Mark',
-        emailAddress:'dummy@code.com'
-    }
-},
-{
-    _id:'2',
-    senderId:{
-        username:'David',
-        emailAddress:'dummy@code.com'
-    }
-}
-]
+import { connect } from 'react-redux';
 
 const MainContainer = styled('div')({
     height:'22%',
@@ -27,10 +12,10 @@ const MainContainer = styled('div')({
     overflow:'auto'
 })
 
-const PendingInvitationsList = () => {
+const PendingInvitationsList = ({pendingFriendsInvitations}) => {
     return (
         <MainContainer>
-            {dummy_invitations.map((i)=>(
+            {pendingFriendsInvitations.map((i)=>(
                 <PendingInvitationsListItems
                 key={i._id}
                 id={i._id}
@@ -42,4 +27,11 @@ const PendingInvitationsList = () => {
     );
 };
 
-export default PendingInvitationsList;
+
+const mapStoreStateToProps=({friends}) =>{
+    return {
+        ...friends
+    }
+}
+
+export default connect(mapStoreStateToProps)(PendingInvitationsList);
