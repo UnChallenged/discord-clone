@@ -17,7 +17,6 @@ const Wrapper = styled('div')({
 })
 
 const Dashboard = ({setUserDetails}) => {
-    console.log('test1')
     useEffect(()=>{
         const userDetails = localStorage.getItem('user');
         if(!userDetails){

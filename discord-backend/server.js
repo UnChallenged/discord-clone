@@ -26,7 +26,7 @@ mongoose.set('strictQuery',false);
 mongoose.connect(process.env.MONGO_URI)
 .then(()=> {
     server.listen(PORT, () =>{
-        console.log(`server is logging on ${PORT}`);
+       // console.log(`server is logging on ${PORT}`);
     });
 }).catch(err =>{
     console.log('Database connection faild');

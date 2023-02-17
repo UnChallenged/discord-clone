@@ -3,7 +3,7 @@ import { friendsActions } from "../actions/friendsActions";
 const initState ={
     friends:[],
     pendingFriendsInvitations:[],
-    onlineUsers:[]
+    onlineUsers:[],
 }
 
 const reducer = (state = initState,action) =>

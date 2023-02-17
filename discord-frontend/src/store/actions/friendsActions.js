@@ -4,7 +4,7 @@ import { openAlertMessage } from './alertActions';
 export const friendsActions = {
     SET_FRIENDS:'FRIENDS.SET_FRIENDS',
     SET_PENDING_FRIENDS_INVITATIONS:'FRIENDS.SET_PENDING_FRIENDS_INVITATIONS',
-    SET_ONLINE_USERS:'FRIENDS.SET_ONLINE_USERS'
+    SET_ONLINE_USERS:'FRIENDS.SET_ONLINE_USERS',
 }
 
 export const getActions = (dispatch) =>{
@@ -24,6 +24,21 @@ export const setPendingFriendsInvitation = (pendingFriendsInvitations) =>{
     return{
         type:friendsActions.SET_PENDING_FRIENDS_INVITATIONS,
         pendingFriendsInvitations
+    }
+}
+
+
+export const setFriends = (friends) =>{
+    return{
+        type:friendsActions.SET_FRIENDS,
+        friends
+    }
+}
+
+export const setOnlineUsers = (onlineUsers) =>{
+    return{
+        type:friendsActions.SET_ONLINE_USERS,
+        onlineUsers
     }
 }
 

@@ -34,7 +34,8 @@ const postRegister = async (req,res) => {
             userDetails:{
                 emailAddress:user.emailAddress,
                 token:token,
-                username:username
+                username:username,
+                _id:user._id
             }
         });
 
