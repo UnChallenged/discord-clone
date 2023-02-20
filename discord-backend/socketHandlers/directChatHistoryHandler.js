@@ -5,10 +5,10 @@ const directChatHistoryHandler = async(socket,data)=>{
     try {
 
         const {userId} = socket.user;
-        const {receiveruserId} = data;
+        const {receiverUserId} = data;
 
         const conversation = await Conversation.findOne({
-            participant:{$all:[userId,receiveruserId]},
+            participant:{$all:[userId,receiverUserId]},
             type:'DIRECT'
         });
         if(conversation){

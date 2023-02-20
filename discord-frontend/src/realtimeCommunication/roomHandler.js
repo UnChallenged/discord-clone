@@ -31,6 +31,7 @@ export const newRoomCreated = (data) => {
 
 export const updateActiveRooms = (data) => {
   const { activeRooms } = data;
+
   const friends = store.getState().friends.friends;
   const rooms = [];
 
@@ -49,6 +50,7 @@ export const updateActiveRooms = (data) => {
       });
     }
   });
+
   store.dispatch(setActiveRooms(rooms));
 };
 

@@ -1,5 +1,5 @@
-const serverStore = require('../serverStore');
-const roomsUpdates = require('./updates/rooms');
+const serverStore = require("../ServerStore");
+const roomsUpdates = require("./updates/rooms");
 
 const roomCreateHandler = (socket) => {
   console.log("handling room create event");
@@ -8,7 +8,7 @@ const roomCreateHandler = (socket) => {
 
   const roomDetails = serverStore.addNewActiveRoom(userId, socketId);
 
-  socket.emit('room-create', {
+  socket.emit("room-create", {
     roomDetails,
   });
 
