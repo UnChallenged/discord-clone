@@ -1,4 +1,4 @@
-# Discord clone written in MEAN stack
+# Discord clone written in MERN stack
 
 to run the project, add .env file in discord-backend folder with the following values:
 
